@@ -1,17 +1,12 @@
-function f(n)
-{
-    var var1 = 0;
-    var var2 = 1;
-    var output = var2;
-    var sum = var1+var2;
-    do
-    {
-      output  +=","+sum;
-      var1=var2;
-      var2=sum;
-      sum=var1+var2;
-    }
-    while(sum<n);
-  document.write(output);
+function fib(n) {
+  let [a , b] = [0 , 1], sum = 1;
+  let series = [];
+  do {
+    //output +=","+sum;
+    series.push(sum);
+    sum = a+b;
+    [a, b] = [b, sum];
+  } while(sum<n);
+  return series.join(",");
 }
-console.log(f(6));
+console.log(fib(6));
